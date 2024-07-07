@@ -4,12 +4,9 @@ import { createFakeContact } from '../utils/createFakeContact.js';
 
 export const addOneContact = async () => {
   const contact = createFakeContact();
-  console.log(contact);
 
   const savedContacts = await getSavedContacts();
-  console.log(savedContacts);
   const allContacts = [...savedContacts, contact];
-  console.log(allContacts);
 
   await updateContacts(allContacts);
 };
