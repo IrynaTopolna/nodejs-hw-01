@@ -12,7 +12,7 @@ const generateContacts = async (number) => {
   const savedContacts = await getSavedContacts();
   const allContacts = savedContacts.concat(newContacts);
 
-  updateContacts(allContacts);
+  updateContacts(allContacts, number);
 };
 
 async function getSavedContacts() {
@@ -20,10 +20,10 @@ async function getSavedContacts() {
   return JSON.parse(savedContacts);
 }
 
-const updateContacts = (contacts) =>
+const updateContacts = (contacts, number) =>
   fs
     .writeFile(PATH_DB, JSON.stringify(contacts))
-    .then(() => console.log('Added'))
+    .then(() => console.log(`Added ${number} contacts`))
     .catch((err) => console.error(err));
 
 generateContacts(5);

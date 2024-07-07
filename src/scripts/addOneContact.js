@@ -19,7 +19,7 @@ async function getSavedContacts() {
 const updateContacts = (contacts) =>
   fs
     .writeFile(PATH_DB, JSON.stringify(contacts))
-    .then(() => console.log('Added'))
+    .then(() => console.log('Contact was added'))
     .catch((err) => console.error(err));
 
 addOneContact();
